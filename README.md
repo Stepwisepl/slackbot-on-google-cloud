@@ -1,5 +1,5 @@
 # About
-This is an internal "Tech Tuesday" demo app showing how to build a Slackbot with [Google Cloud Function].
+This is a [Stepwise] "Tech Tuesday" demo app showing how to build a Slackbot with [Google Cloud Function].
 
 ## Bootstrap project (copied from [Google Cloud Functions with Typecript])
 
@@ -55,7 +55,20 @@ This is an internal "Tech Tuesday" demo app showing how to build a Slackbot with
     URL: http://localhost:8080/
     ```
 
+## Create Slack app 
 
+(No coding yet)
+1) Open https://api.slack.com/  and [Create an app](https://api.slack.com/apps?new_app=1)
+2) Select "From Scratch" and Fill App Name and workspace
+3) Select `Slash commands` and `Create New Command`
+4) Fill `Create New Command` form with:  
+Command: `/stepwise/`  
+Request Url: `https://not-valid.yet` (we will get url later on and update it)  
+Short Description: `Tech tuesday demo bot`  
+  
+5) Install the app to your workspace
 
 [Google Cloud Functions with Typecript]: (https://github.com/GoogleCloudPlatform/functions-framework-nodejs/blob/master/docs/typescript.md)
 [Google Cloud Function]: (https://github.com/GoogleCloudPlatform/functions-framework-nodejs/blob/master/docs/typescript.md)
+[ngrok]: (https://ngrok.com/)
+[Stepwise]: (https://stepwise.pl)

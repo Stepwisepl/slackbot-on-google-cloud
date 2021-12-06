@@ -20,7 +20,7 @@ This is a [Stepwise] "Tech Tuesday" demo app showing how to build a Slackbot wit
    point to the compiled code directory (configured by `gts` in this example).
    Also add a `watch` script to use for development:
 
-    ```js
+    ```
       "scripts": {
         "start": "functions-framework --source=build/src/ --target=helloWorld",
         "watch": "concurrently \"tsc -w\" \"nodemon --watch ./build/ --exec npm run start\"",
@@ -68,7 +68,43 @@ Short Description: `Tech tuesday demo bot`
   
 5) Install the app to your workspace
 
+## Start Development
+
+1. Fill `index.ts` with following code:
+```typescript
+import type {HttpFunction} from '@google-cloud/functions-framework/build/src/functions';
+
+
+export const handleRequest: HttpFunction = (req, res) => {
+   const command = req.body.text
+   res.send(`Command: '${command}'`);
+};
+```
+
+2. Run function locally with:
+```
+npm run watch
+```
+3. Run [ngrok] to create tunnel to your local machine:  
+```
+ngrok http 8080
+```
+
+4. Copy https link from output of ngrok and use it as Slackbot command request url (See [Create Slack app](#create-slack-app) section)
+
+5. Try running `/stepwise test` in your Slack. You should get following in response: 
+```text
+Command: test
+```
+
+Having such setup you can debug app locally.
+
+
 [Google Cloud Functions with Typecript]: (https://github.com/GoogleCloudPlatform/functions-framework-nodejs/blob/master/docs/typescript.md)
 [Google Cloud Function]: (https://github.com/GoogleCloudPlatform/functions-framework-nodejs/blob/master/docs/typescript.md)
 [ngrok]: (https://ngrok.com/)
 [Stepwise]: (https://stepwise.pl)
+
+
+
+

@@ -18,7 +18,7 @@
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
-    "start": "functions-framework --source=build/src/ --target=helloWorld",
+    "start": "functions-framework --source=build/src/ --target=handleRequest",
     "watch": "concurrently \"tsc -w\" \"nodemon --watch ./build/ --exec npm run start\""
   },
   "devDependencies": {

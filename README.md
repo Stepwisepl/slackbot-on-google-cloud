@@ -1,7 +1,7 @@
 # About
 This is a [Stepwise] "Tech Tuesday" demo app showing how to build a Slackbot with [Google Cloud Function].
 
-## Bootstrap project (copied from [Google Cloud Functions with Typecript])
+## Bootstrap project (copied from [Google Cloud Functions with Typescript])
 
 1. Use [gts](https://github.com/google/gts) to configure Typescript.
 
@@ -100,10 +100,30 @@ Command: test
 Having such setup you can debug app locally.
 
 
-[Google Cloud Functions with Typecript]: (https://github.com/GoogleCloudPlatform/functions-framework-nodejs/blob/master/docs/typescript.md)
-[Google Cloud Function]: (https://github.com/GoogleCloudPlatform/functions-framework-nodejs/blob/master/docs/typescript.md)
-[ngrok]: (https://ngrok.com/)
-[Stepwise]: (https://stepwise.pl)
+## Deploy it to Google Cloud Function
+
+1. Create project  
+```gcloud projects create tech-tuesday-cloud-functions --folder=252221710142 --name="Tech Tuesday Cloud Functions" --set-as-default```
+
+2. Enable billing  
+```gcloud alpha billing projects link tech-tuesday-cloud-functions2 --billing-account=<yourBillingAccount>```
+
+3. Enable Cloud Build  
+```gcloud services enable cloudbuild.googleapis.com```
+
+4. Deploy Function  
+```gcloud functions deploy stepwiseBot --runtime nodejs16 --trigger-http --allow-unauthenticated --region=europe-central2```
+
+5. Copy https link from output of ngrok and use it as Slackbot command request url (See [Create Slack app](#create-slack-app) section)
+   [link text itself]
+6. Cleanup :)  
+```gcloud projects delete tech-tuesday```
+
+[Google Cloud Functions with Typescript]: https://github.com/GoogleCloudPlatform/functions-framework-nodejs/blob/master/docs/typescript.md
+[Google Cloud Function]: https://github.com/GoogleCloudPlatform/functions-framework-nodejs/blob/master/docs/typescript.md
+[ngrok]: https://ngrok.com/
+[Stepwise]: https://stepwise.pl
+
 
 
 

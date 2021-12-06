@@ -62,7 +62,7 @@ This is a [Stepwise] "Tech Tuesday" demo app showing how to build a Slackbot wit
 2) Select "From Scratch" and Fill App Name and workspace
 3) Select `Slash commands` and `Create New Command`
 4) Fill `Create New Command` form with:  
-Command: `/stepwise/`  
+Command: `/stepwise`  
 Request Url: `https://not-valid.yet` (we will get url later on and update it)  
 Short Description: `Tech tuesday demo bot`  
   

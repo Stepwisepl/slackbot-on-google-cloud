@@ -1,5 +1,7 @@
-import type { HttpFunction } from '@google-cloud/functions-framework/build/src/functions';
+import type {HttpFunction} from '@google-cloud/functions-framework/build/src/functions';
+
 
 export const helloWorld: HttpFunction = (req, res) => {
-  res.send('Hello, World');
+    const command = req.body.text
+    res.send(`Command: '${command}'`);
 };
